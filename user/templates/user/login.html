@@ -1,0 +1,202 @@
+{% extends "user/index.html" %} {% load crispy_forms_tags %} {% block start %}
+<style>
+    .button {
+        background-color: azure;
+        color: white;
+    }
+    
+    .a img {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 0%;
+    }
+    
+    .button:hover {
+        background-color: green;
+        border: 2px solid white;
+    }
+    
+    .form {
+        color: white;
+    }
+    
+    .form input {
+        color: black;
+    }
+    
+    .copy p {
+        text-align: center;
+    }
+    
+    .text {
+        text-align: center;
+        color: white;
+    }
+    
+    .forms {
+        margin: auto;
+        border: 2px solid rgb(16, 171, 182);
+    }
+    .btn {
+            padding: 8px 30px;
+            margin: 30px 0;
+            background-color: #ff523b;
+            color: #fff;
+            border: 2px solid yellow;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 15px;
+    }
+        
+    .btn:hover {
+            transition: 0.6s;
+            background-color: black;
+            color: white;
+    }
+    .copy li {
+        display: inline-block;
+        margin: 5px;
+        justify-content: center;
+        align-items: center;
+        right: 40px;
+        bottom: 50px;
+        list-style: none;
+        padding: 20px;
+        font-size: 50px;
+        width: 50px;
+        text-decoration: none;
+        border-radius: 50%;
+    }
+    
+    .head5 {
+        color: #FBAD30;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    
+    .head6 {
+        color: #EF4926;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .icon-bar {
+            position: fixed;
+            top: 90%;
+            left: 90%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        
+        .icon-bar a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .icon-bars {
+            position: fixed;
+            top: 90%;
+            left: 0%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        
+        .icon-bars a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+        @media only screen and (max-width: 600px){
+            .btn {
+            padding: 8px 30px;
+            margin: 30px 0;
+            background-color: #ff523b;
+            color: #fff;
+            border: 2px solid yellow;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transition: 0.6s;
+            background-color: black;
+        }
+        .icon-bar {
+            position: fixed;
+            top: 90%;
+            left: 65%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        
+        .icon-bar a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .icon-bars {
+            position: fixed;
+            top: 90%;
+            left: 0%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        
+        .icon-bars a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+        }
+</style>
+<br><br>
+<h1 class="text"> <span> Welcome in </span> <span class="head5">Quiz</span> <span class="head6">Exam</span></h1>
+<br><br><br><br>
+<div class="content-section col-md-8 col-md-offset-2 forms">
+    <center>
+        <form method="POST" style="border: 1px solid black; margin: 4%; padding:10%; border-radius:1%; margin: auto;">
+            <h1 class="text"> Login....!</h1>
+            <br><br> {% csrf_token %}
+            <fieldset class="form-group form">
+                {{ form|crispy}} {{ form.captcha }}
+            </fieldset>
+            <center>
+                <button  class="btn btn-outline-info" type="submit">login</button>
+            </center>
+            <br/>
+            <sub style="text-align: left;"><a href="/register" style="text-decoration: none; color: blue; padding:2%; cursor:pointer; margin-right:2%; font-size: 15px;">don't have account,sign up</a></sub>
+            <sub style="text-align: left;"><a href="/forget-password" style="text-decoration: none; color: blue; padding:2%; cursor:pointer; margin-right:2%; font-size: 15px;">forgot password</a></sub>
+        </form>
+    </center>
+</div>
+<br><br>
+<hr color="white">
+<footer class="copy">
+    <p style="color: white;">Copyright &copy;2021 Quiz Exam All rights are reserved</p>
+    
+</footer>
+<div class="icon-bar">
+    <a href="/contact"><button class="btn btn-primary"> Help</button></a>
+</div>
+<div class="icon-bars">
+    <a><button class="btn btn-primary" onclick="functionAlerts()"> Alert</button></a>
+</div>
+{% endblock start %}

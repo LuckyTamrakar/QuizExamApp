@@ -1,0 +1,140 @@
+{% extends "user/index.html" %} {% load crispy_forms_tags %} {% block start %}
+<style>
+    .button {
+        background-color: rgb(241, 87, 87);
+        border: 1px solid white;
+        font-size: 15px;
+        font-weight: bold;
+        width: 155px;
+        height: 50px;
+    }
+    
+    .head6 {
+        color: #EF4926;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    
+    .a img {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 0%;
+    }
+    
+    .button:hover {
+        background-color: greenyellow;
+    }
+    .icon-bar {
+            position: fixed;
+            top: 90%;
+            left: 90%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    }
+        
+    .icon-bar a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+    }
+        
+    .icon-bars {
+            position: fixed;
+            top: 90%;
+            left: 0%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    }
+        
+    .icon-bars a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+    }
+    .form {
+        color: white;
+        border: 2px solid white;
+        margin: auto;
+        padding: 10px;
+       
+    }
+    
+    .form input {
+        color: black;
+    }
+    
+    .copy p {
+        text-align: center;
+    }
+    
+    .copy li {
+        display: inline-block;
+        margin: 5px;
+        justify-content: center;
+        align-items: center;
+        right: 40px;
+        bottom: 50px;
+        list-style: none;
+        padding: 20px;
+        font-size: 50px;
+        width: 50px;
+        text-decoration: none;
+        border-radius: 50%;
+    }
+    
+    .text {
+        text-align: center;
+        color: white;
+    }
+    
+    .head5 {
+        color: #FBAD30;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+</style>
+<br><br>
+<h1 class="text"> <span> Welcome in </span> <span class="head5">Quiz</span> <span class="head6">Exam</span></h1>
+<br><br><br><br>
+<div class="mt-5 signup-form pb-3 shadow">
+    <h3 class="p-3 text-center" style="color: White;">Signup Form</h3>
+    <form method="POST" class="px-5 pt-4" style="color: white;" novalidate> {% csrf_token%}
+
+     {% for f in fm%}
+<span class="text-danger">{{f.errors}}</span>
+<label>{{f.label}}</label><br>
+{{f}} <br><br>
+
+     {%endfor%}
+
+<span class="text-danger">{{up.phone_number.errors}}</span>
+<label >{{up.phone_number.label}}</label><br>
+{{up.phone_number}} <br><br>
+
+<button class="btn" name="registration">Create Account</button>
+    </form>
+    <br>
+    <small class="px-5 text-muted">Alreay have an account <a href="/login/" style="text-decoration: none;">login</a></small>
+</div>
+{% endblock start %}
+<hr color="black">
+<footer class="copy">
+    <p style="color: white;">Copyright &copy;2021 Quiz Exam All rights are reserved</p>
+    
+    
+</footer>
+<div class="icon-bar">
+    <a href="/contact"><button class="btn btn-primary"> Help</button></a>
+</div>
+<div class="icon-bars">
+    <a><button class="btn btn-primary" onclick="functionAlerts()"> Alert</button></a>
+</div>

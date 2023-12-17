@@ -1,0 +1,703 @@
+{% load static %} {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="project">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+rel="stylesheet"
+/>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
+></script>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Multi Functionality Webapp</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+
+
+    <!-- main css -->
+    <link rel="stylesheet" type="text/css" href="{% static " index.css " %}" />
+
+
+    <!-- message here -->
+    <script>
+    </script>
+    {% if messages %} {% for message in messages %}
+
+    <script>
+        alert("{{ message }}");
+    </script>
+
+    {% endfor %} {% endif %}
+
+    <!--_______________________________________________-->
+
+    {% block css %}
+    <style>
+        .hello {
+            background-color: black;
+        }
+        
+        .head1 {
+            color: #FBAD30;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        .head2 {
+            color: #EF4926;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        .head3 {
+            color: #FBAD30;
+            font-weight: bold;
+        }
+        
+        .head4 {
+            color: #EF4926;
+            font-weight: bold;
+        }
+        
+        .rows {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .card {
+            margin: 70px;
+            color: white;
+        }
+        
+        .copy p {
+            text-align: center;
+        }
+        
+        .copy li {
+            display: inline-block;
+            margin: 5px;
+            justify-content: center;
+            align-items: center;
+            right: 40px;
+            bottom: 50px;
+            list-style: none;
+            padding: 20px;
+            font-size: 50px;
+            width: 50px;
+            text-decoration: none;
+            border-radius: 50%;
+        }
+        
+        #confirm {
+            display: none;
+            background-color: #0a0a0a;
+            color: #faefef;
+            border: 4px solid rgb(14, 80, 224);
+            position: fixed;
+            border-radius: 15px;
+            width: 500px;
+            height: 330px;
+            left: 35%;
+            top: 0%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        #confirm1 {
+            display: none;
+            background-color: #0a0a0a;
+            color: #faefef;
+            border: 4px solid rgb(14, 80, 224);
+            position: fixed;
+            border-radius: 15px;
+            width: 500px;
+            height: 330px;
+            left: 35%;
+            top: 0%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        #confirm2 {
+            display: none;
+            background-color: #0a0a0a;
+            color: #faefef;
+            border: 4px solid rgb(14, 80, 224);
+            position: fixed;
+            border-radius: 15px;
+            width: 500px;
+            height: 330px;
+            left: 35%;
+            top: 0%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        #confirm3 {
+            display: none;
+            background-color: #0a0a0a;
+            color: #faefef;
+            border: 4px solid rgb(14, 80, 224);
+            position: fixed;
+            border-radius: 15px;
+            width: 500px;
+            height: 330px;
+            left: 35%;
+            top: 0%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        #confirm4 {
+            display: none;
+            background-color: #0a0a0a;
+            color: #faefef;
+            border: 4px solid rgb(14, 80, 224);
+            position: fixed;
+            border-radius: 15px;
+            width: 500px;
+            height: 330px;
+            left: 35%;
+            top: 0%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        #confirm5 {
+            display: none;
+            background-color: #0a0a0a;
+            color: #faefef;
+            border: 4px solid rgb(14, 80, 224);
+            position: fixed;
+            border-radius: 15px;
+            width: 500px;
+            height: 330px;
+            left: 35%;
+            top: 0%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        #confirmes {
+            display: none;
+            background-color: #0a0a0a;
+            color: #faefef;
+            border: 4px solid rgb(14, 80, 224);
+            position: fixed;
+            border-radius: 15px;
+            width: 500px;
+            height: 390px;
+            left: 35%;
+            top: 0%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        .submit {
+            background-color: black;
+            display: inline-block;
+            border-radius: 12px;
+            border: 4px solid rgb(237, 243, 239);
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            width: 80px;
+            cursor: pointer;
+        }
+        
+        .cancel {
+            background-color: #0a0a0a;
+            display: inline-block;
+            border-radius: 12px;
+            border: 4px solid rgb(237, 243, 239);
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            width: 80px;
+            cursor: pointer;
+        }
+        
+        #confirm .message {
+            text-align: center;
+            margin: auto;
+            padding: 10px;
+        }
+        
+        #confirmes .messagess {
+            text-align: left;
+            margin: auto;
+            padding: 10px;
+        }
+        
+        .cancel:hover {
+            background-color: red;
+        }
+        
+        .submit:hover {
+            background-color: rgb(23, 236, 15);
+        }
+        
+        .brands {
+            margin: 100px auto;
+        }
+        
+        .col-5 {
+            width: 160px;
+        }
+        
+        .col-5 img {
+            width: 100%;
+            cursor: pointer;
+            filter: grayscale(100%);
+        }
+        
+        .col-5 img:hover {
+            filter: grayscale(0%);
+        }
+        
+        .rowss {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .icon-bar {
+            position: fixed;
+            top: 90%;
+            left: 90%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        /* Style the icon bar links */
+        
+        .icon-bar a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+        /* Style the social media icons with color, if you want */
+        
+        .icon-bars {
+            position: fixed;
+            top: 90%;
+            left: 2%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        /* Style the icon bar links */
+        
+        .icon-bars a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .btn:hover {
+            transition: 0.6s;
+            background-color: black;
+        }
+        
+        .sm {
+            max-width: 980px;
+            margin: auto;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        
+        .sms {
+            max-width: 980px;
+            margin: auto;
+            padding-left: 30px;
+            padding-right: 30px;
+            display: flex;
+        }
+        
+        .containers {
+            padding-left: 45px;
+            padding-right: 45px;
+            max-width: 1300px;
+            margin: auto;
+        }
+        
+        .foot {
+            background-color: #000;
+            color: #8a8a8a;
+            font-size: 14px;
+            padding: 60px 0 20px;
+        }
+        
+        .foot p {
+            columns: #8a8a8a;
+        }
+        
+        .foot h3 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .foot-col-1,
+        .foot-col-2,
+        .foot-col-3,
+        .foot-col-4 {
+            margin-bottom: 20px;
+            min-width: 250px;
+        }
+        
+        .foot-col-1 {
+            flex-basis: 30%;
+        }
+        
+        .foot-col-2 {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .foot-col-2 img {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+        
+        .foot-col-4 li {
+            display: inline-block;
+            list-style: none;
+            margin: 10px;
+            text-align: center;
+            color: blue;
+        }
+        
+        .foot-col-4 li a {
+            color: blue;
+            font-size: 40px;
+        }
+        
+        .app-logo {
+            margin-top: 20px;
+        }
+        
+        .app-logo img {
+            width: 140px;
+        }
+        
+        .rowe {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .col-2 {
+            flex-basis: 50%;
+            min-width: 360px;
+        }
+        
+        .col-2 img {
+            width: 50%;
+            padding: 50px 0;
+            position: relative;
+            left: 45%;
+        }
+        
+        .btn {
+            padding: 8px 30px;
+            margin: 30px 0;
+            background-color: #ff523b;
+            color: #fff;
+            border: 2px solid yellow;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        
+        .test {
+            padding-top: 100px;
+            color: white;
+        }
+        
+        .test .col-3 {
+            border: 0px rgb(14, 181, 236);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test .col-3 img {
+            width: 250px;
+            border-radius: 50%;
+            margin-top: 20px;
+            transition: transform 0.5s;
+        }
+        
+        .test .col-3:hover {
+            transform: translateY(8px);
+        }
+        
+        .fa.fa-quote-left {
+            font-size: 34px;
+            text-align: center;
+            color: #ff523b;
+        }
+        
+        .app {
+            background-color: #bff109;
+        }
+        
+        #confirmes {
+            display: none;
+            background-color: #0a0a0a;
+            color: #faefef;
+            border: 4px solid rgb(14, 80, 224);
+            position: fixed;
+            border-radius: 15px;
+            width: 500px;
+            height: 390px;
+            left: 35%;
+            top: 0%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        #confirmes .messagess {
+            text-align: left;
+            margin: auto;
+            padding: 10px;
+        }
+        
+        .submit {
+            background-color: black;
+            display: inline-block;
+            border-radius: 12px;
+            border: 4px solid rgb(237, 243, 239);
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            width: 80px;
+            cursor: pointer;
+        }
+        
+        .icon-bar {
+            position: fixed;
+            top: 90%;
+            left: 90%;
+        }
+        
+        .icon-bars {
+            position: fixed;
+            top: 90%;
+            left: 2%;
+        }
+        
+        .a img {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 0%;
+        }
+    </style>
+    <script>
+        function functionAlerts(msg, myYes) {
+            var confirmBox = $("#confirmes");
+            confirmBox.find(".messagess").text(msg);
+            confirmBox.find(".yes").unbind().click(function() {
+                confirmBox.hide();
+            });
+            confirmBox.find(".yes").click(myYes);
+            confirmBox.show();
+        }
+    </script>
+    {% endblock %}
+
+</head>
+
+<body class="container-fluid hello">
+
+
+    <header class="row">
+
+        <!-- navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img alt="Brand" src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png" width="40" height="40" class=" ">
+                    <span class="head1">Quiz </span><span class="head2">Exam</span>
+                </a>
+              <a class="navbar-brand" href="/"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="/">Home</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link " href="{% url 'contact' %}">Contact Us</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="{% url 'about' %}">About Us</a></li>
+                
+                </ul>
+                
+                    
+                            <ul class="navbar-nav justify-content-end">
+                                {% if user.is_superuser %}
+                                <li class="nav-item"><a class="nav-link " href="/user/nikhilluckyjyoti/QuizExam/">Go to Database</a></li>
+                                {% endif %}
+                                {% if user.is_authenticated %}
+
+                                <li class="nav-item"><a class="nav-link " href="{% url 'index' %}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                  </svg>&nbsp;  Welcome {{user.username}}</a></li>
+                                <li class="nav-item"><a class="nav-link " href="{% url 'logout' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                                    <path d="M7.5 1v7h1V1h-1z"/>
+                                    <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+                                  </svg> &nbsp; Logout</a></li>
+                                {% else %}
+                                <li class="nav-item"><a class="nav-link " href="{% url 'register' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                  </svg> &nbsp; Sign up</a></li>
+                                <li class="nav-item"><a class="nav-link " href="{% url 'login' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                  </svg></span> &nbsp; Log in</a></li>
+                            </ul>
+                            {% endif %}
+
+                    
+            
+            </div>
+          </nav>
+    </header>
+    <br/>
+    <div id="confirmes">
+        <div class="messagess">
+            <h3><span class="head1">Quiz</span><span class="head2"> Exam</span> Says....</h3> <br> Welcome to Quiz Exam. <br> 1). It is the best portal for Giving Quiz Exam <br>2). Firstly Please signup or if you have account please login <br>3). In Signup
+            please provide your correct mail id <br>4). If you did not provide correct information you did not signup or login <br>5). In the given time limit please complete the quiz if you didnot complete the quiz on time the quiz automatically submit
+            and show your result
+            <br> All the best for the quiz!!!..</div><br>
+        <button class="yes submit ">OK</button>
+
+
+    </div>
+    <div class="rowe app " style="border-radius: 10px;">
+        <div class="col-2" style="padding: 10px">
+            <h1>Give Your Online Quiz <br>New Style !</h1>
+            <p>Success isn't always about greatness. it's about consistency. Consistent <br> hard work gain succes. Greatness will come</p>
+            <a href="/"> <button class="btn">Explore Now! &#8594;</button></a>
+        </div>
+        <div class="col-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png" alt="">
+        </div>
+    </div>
+    <div class="test">
+        <h1 style="text-align:center; color:white; cursor:pointer">About Developer</h1><br>
+        <div class="smss">
+            <div class="rowes" style="margin: 20px;">
+                <div class="test">
+                    <div class="col-3">
+                        
+                        <img src="../static/lucky.jpg" alt="">
+                        <h3>Lucky Tamrakar</h3>
+        </div></div>
+                    <i class="fa fa-quote-left"></i>
+                    <h5>Hello there! My name is Lucky Tamrakar, I am an aspiring fresher DevOps engineer, eager to make my mark in the dynamic world of technology. As a fresh graduate, I bring a solid foundation in AWS, Docker, Linux, DevOps principles, Jenkins, Ansible, Python, SQL, and web development, coupled with a passion for continuous learning and innovation.
+
+                        My journey into DevOps has equipped me with a keen understanding of cloud computing through AWS, where I've explored the nuances of building scalable and resilient infrastructures. Proficient in Docker, I am well-versed in containerization, providing a foundation for efficient and portable application deployment.
+                        
+                        With a strong grasp of Linux, I aim to leverage its open-source capabilities to design robust systems that prioritize security and performance. Guided by DevOps methodologies, I am enthusiastic about fostering collaboration between development and operations teams, with a focus on establishing seamless integration and continuous delivery pipelines.
+                        
+                        I have hands-on experience with tools like Jenkins and Ansible, utilizing automation to streamline processes and enhance overall efficiency. My programming skills in Python allow me to contribute to scripting and customization, adding a dynamic layer to automation initiatives.
+                        
+                        In the realm of data, I've gained proficiency in SQL, enabling me to work with databases to ensure data integrity and optimize performance. Furthermore, my understanding of web development positions me to contribute to end-to-end solutions, bridging the gap between infrastructure and application layers.
+                        
+                        As a fresher in the DevOps space, I am eager to bring my energy, enthusiasm, and a fresh perspective to contribute to innovative projects. I am committed to continuous growth, and I am excited about the opportunity to learn, collaborate, and make meaningful contributions to the evolving landscape of technology.</h5>
+                       
+        </div><a href="https://www.linkedin.com/in/lucky-tamrakar-b9b906191/" target='_blank'><button class="btn">Learn More &#8594;</button></a>
+    </div>
+    
+    
+          <h2 className="font-weight-light">Resume and Video Profile</h2>
+          <p className="font-italic text-muted mb-4">Hello there! My name is Lucky Tamrakar, I am an aspiring DevOps engineer, eager to make my mark in the dynamic world of technology. As a fresh graduate, I bring a solid foundation in AWS, Docker, Linux, DevOps principles, Jenkins, Ansible, Python, SQL, and web development, coupled with a passion for continuous learning and innovation.</p><div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  
+  
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Learn More
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="https://drive.google.com/file/d/1IKxxSiwUkQKG-sPzVnHtDwG8qldmg9GF/view?usp=sharing" target='_blank'>Video Profile</a></li>
+        <li><a class="dropdown-item" href="https://drive.google.com/file/d/1M1Iw3rdbr_0f5qBb87Iml-mxQgHDJmeQ/view?usp=sharing" target='_blank'>Resume</a></li>
+      </ul>
+    </div>
+  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <hr color="black ">
+    <div class="foot">
+
+        <div class="containers">
+            <div class="rowss">
+                <div class="foot-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and ios mobile phone</p>
+                    <div class="app-logo">
+                        <img src="../static/play-store.png" alt="">
+                        <img src="../static/app-store.png" alt="">
+                    </div>
+                </div>
+                <div class="foot-col-2 app-logo">
+                    <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png" alt=""></a>
+                    <a href="/" style="text-decoration: none;">
+                        <h3><span class="head1">Quiz </span><span class="head2">Exam</span></h3>
+                    </a>
+                </div>
+
+                
+            </div>
+            
+            <hr style="color: #fff; height:1px">
+            <h4 style="text-align: center; color:azure;">Copyright &copy; 2024 Quiz Exam All rights are reserved</h4>
+
+        </div>
+    </div>
+    <div class="icon-bar">
+        <a href="/contact"><button class="btn btn-primary"> Help</button></a>
+    </div>
+    <div class="icon-bars">
+        <a><button class="btn btn-primary" onclick="functionAlerts()"> Alert</button></a>
+    </div>
+</body>

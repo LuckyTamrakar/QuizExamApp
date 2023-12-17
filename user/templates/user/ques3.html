@@ -1,0 +1,609 @@
+{% load static %} {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="project">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png">
+
+    <title>Quiz Exam</title>
+
+
+    <!-- bootstrap file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+    <!-- bootstrap file-->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- main css -->
+
+
+
+    <!-- message here -->
+
+    {% if messages %} {% for message in messages %}
+
+    <script>
+        alert("{{ message }}");
+    </script>
+
+    {% endfor %} {% endif %}
+
+    <!--_______________________________________________-->
+
+    {% block css %}
+    <style>
+        .hello {
+            background-color: black;
+        }
+        .head8 {
+            color: #FBAD30;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        
+        .head9 {
+            color: #EF4926;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .head1 {
+            color: #FBAD30;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        .card {
+            margin: 70px;
+            color: white;
+        }
+        
+        .head2 {
+            color: #EF4926;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        
+        .rows {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .head3 {
+            color: #FBAD30;
+            font-weight: bold;
+        }
+        
+        .a img {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 0%;
+        }
+        
+        .icon-bar {
+            position: fixed;
+            top: 90%;
+            left: 90%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        
+        .icon-bar a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .icon-bars {
+            position: fixed;
+            top: 90%;
+            left: 0%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        
+        .icon-bars a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+        @media only screen and (max-width: 600px){
+            #confirm {
+            display: none;
+            background-color: #0a0a0a;
+            color: #faefef;
+            border: 4px solid rgb(14, 80, 224);
+            position: fixed;
+            border-radius: 15px;
+            width: 300px;
+            height: 430px;
+            left: 9%;
+            top: 0%;
+            box-sizing: border-box;
+            text-align: center;
+            }
+        }
+        #confirmes {
+            display: none;
+            background-color: #0a0a0a;
+            color: #faefef;
+            border: 4px solid rgb(14, 80, 224);
+            position: fixed;
+            border-radius: 15px;
+            width: 500px;
+            height: 430px;
+            left: 35%;
+            top: 0%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        #confirmes .messagess {
+            text-align: left;
+            margin: auto;
+            padding: 10px;
+        }
+        .submit {
+            background-color: black;
+            display: inline-block;
+            color: white;
+            border-radius: 12px;
+            border: 4px solid rgb(237, 243, 239);
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            width: 80px;
+            cursor: pointer;
+        }
+        .submit:hover {
+            background-color: rgb(23, 236, 15);
+        }
+        .btn {
+            padding: 8px 30px;
+            margin: 30px 0;
+            background-color: #ff523b;
+            color: #fff;
+            border: 2px solid yellow;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transition: 0.6s;
+            background-color: black;
+        }
+        
+        .head4 {
+            color: #EF4926;
+            font-weight: bold;
+        }
+        
+        .brands {
+            margin: 100px auto;
+        }
+        
+        .col-5 {
+            width: 160px;
+        }
+        
+        .col-5 img {
+            width: 100%;
+            cursor: pointer;
+            filter: grayscale(100%);
+        }
+        
+        .col-5 img:hover {
+            filter: grayscale(0%);
+        }
+        
+        .rowss {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .sm {
+            max-width: 980px;
+            margin: auto;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        
+        .containers {
+            padding-left: 45px;
+            padding-right: 45px;
+            max-width: 1300px;
+            margin: auto;
+        }
+        
+        .foot {
+            background-color: #000;
+            color: #8a8a8a;
+            font-size: 14px;
+            padding: 60px 0 20px;
+        }
+        
+        .foot p {
+            columns: #8a8a8a;
+        }
+        
+        .foot h3 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .foot-col-1,
+        .foot-col-2,
+        .foot-col-3,
+        .foot-col-4 {
+            margin-bottom: 20px;
+            min-width: 250px;
+        }
+        
+        .foot-col-1 {
+            flex-basis: 30%;
+        }
+        
+        .foot-col-2 {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .foot-col-2 img {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+        
+        .foot-col-4 li {
+            display: inline-block;
+            list-style: none;
+            margin: 10px;
+            text-align: center;
+            color: blue;
+        }
+        
+        .foot-col-4 li a {
+            color: blue;
+            font-size: 40px;
+        }
+        
+        .app-logo {
+            margin-top: 20px;
+        }
+        
+        .app-logo img {
+            width: 140px;
+        }
+        
+        .form {
+            color: white;
+        }
+        
+        .card {
+            margin: 50px;
+            padding: 20px;
+        }
+   </style>
+        <script>
+            function functionAlerts(msg, myYes) {
+                var confirmBox = $("#confirmes");
+                confirmBox.find(".messagess").text(msg);
+                confirmBox.find(".yes").unbind().click(function() {
+                    confirmBox.hide();
+                });
+                confirmBox.find(".yes").click(myYes);
+                confirmBox.show();
+            }
+        </script>
+  
+
+</head>
+
+<body class="container-fluid hello" oncopy="return false" oncut="return false" onpaste="return false">
+
+
+    <header class="row">
+
+        <!-- navbar-->
+               <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img alt="Brand" src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png" width="40" height="40" class=" ">
+                    <span class="head1">Quiz </span><span class="head2">Exam</span>
+                </a>
+              <a class="navbar-brand" href="/"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link " href="{% url 'contact' %}">Contact Us</a></li>
+                  
+                
+                </ul>
+                
+                    
+                            <ul class="navbar-nav justify-content-end">
+                                {% if user.is_superuser %}
+                                <li class="nav-item"><a class="nav-link " href="/user/nikhilluckyjyoti/QuizExam/">Go to Database</a></li>
+                                {% endif %}
+                                {% if user.is_authenticated %}
+
+                                <li class="nav-item"><a class="nav-link " href="{% url 'index' %}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                  </svg>&nbsp;  Welcome {{user.username}}</a></li>
+                                <li class="nav-item"><a class="nav-link " href="{% url 'logout' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                                    <path d="M7.5 1v7h1V1h-1z"/>
+                                    <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+                                  </svg> &nbsp; Logout</a></li>
+                                {% else %}
+                                <li class="nav-item"><a class="nav-link " href="{% url 'register' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                  </svg> &nbsp; Sign up</a></li>
+                                <li class="nav-item"><a class="nav-link " href="{% url 'login' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                  </svg></span> &nbsp; Log in</a></li>
+                            </ul>
+                            {% endif %}
+
+                    
+            
+            </div>
+          </nav>
+    </header>
+    <br/>
+    <br>
+    <br> {% if user.is_authenticated %}
+    <div class="container " onmousedown="return false" onmouseup="return false" onselect="return false">
+        <h1><span style="color: aliceblue;">Welcome in </span> <span class="head8">DBMS Quiz </span> <span class="head9">Exam</span></h1>
+        <div align="right " id="displaytimer" style="color: white;"><b>Timer: 0 seconds</b></div>
+        <form method='post' action='' name="form1" id="form1" class="container form">
+            <script>
+                var a = 0;
+            </script>
+            {% csrf_token %} {% for q in question3%}
+            <script>
+                a += 1;
+            </script>
+            <div class="form-group">
+                <label for="question">{{q.question3}}</label>
+            </div>
+            <div class="form-check">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="option1">
+                    <label class="form-check-label" for="gridRadios1">
+                    {{q.op1}}
+                </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="option2">
+                    <label class="form-check-label" for="gridRadios2">
+                    {{q.op2}}
+                </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="option3">
+                    <label class="form-check-label" for="gridRadios1">
+                    {{q.op3}}
+                </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="option4">
+                    <label class="form-check-label" for="gridRadios2">
+                    {{q.op4}}
+                </label>
+                </div>
+                <br>
+            </div>
+            {% endfor %}
+            <input id='timer' type='hidden' name="timer" value="">
+            <br>
+            <button type="submit" class="btn btn-primary form">Submit</button>
+        </form>
+         {% else %}
+        <center>
+            <h1><span style="color: aliceblue;"> Login plss to give</span> <span class="head8">Quiz </span> <span class="head9">Exam</span> . . .</h1>
+        </center>
+        <div class="container ">
+            <div class="rows">
+                <div class="card" style="width: 18rem; background-color: black;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title "> <span class="head3">Python</span> <span class="head4"> Quiz</span> </h3>
+                        <p class="card-text">You are at right place to test your skills.You can test your Python programming skills by giving a short quiz.So don't waste your time and give the quiz. </p>
+                        <a href="/" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem; background-color: black;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title "> <span class="head3">Java</span> <span class="head4"> Quiz</span> </h3>
+                        <p class="card-text">You are at right place to test your skills.You can test your Java programming skills by giving a short quiz.So don't waste your time and give the quiz. </p>
+                        <a href="/" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem; background-color: black;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title "> <span class="head3">C/C++</span> <span class="head4"> Quiz</span> </h3>
+                        <p class="card-text">You are at right place to test your skills.You can test your C/C++ programming skills by giving a short quiz.So don't waste your time and give the quiz. </p>
+                        <a href="/" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="rows">
+                <div class="card" style="width: 18rem; background-color: black;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title "> <span class="head3">DBMS</span> <span class="head4"> Quiz</span> </h3>
+                        <p class="card-text">You are at right place to test your skills.You can test your DBMS programming skills by giving a short quiz.So don't waste your time and give the quiz. </p>
+                        <a href="/" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem; background-color: black;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title "> <span class="head3">Software Engineering</span> <span class="head4"> Quiz</span> </h3>
+                        <p class="card-text">You are at right place to test your skills.You can test your Software Engineering programming skills by giving a short quiz.So don't waste your time and give the quiz. </p>
+                        <a href="/" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem; background-color: black;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title "> <span class="head3">HTMl/CSS/JS</span> <span class="head4"> Quiz</span> </h3>
+                        <p class="card-text">You are at right place to test your skills.You can test your HTMl/CSS/JS programming skills by giving a short quiz.So don't waste your time and give the quiz. </p>
+                        <a href="/" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="brands">
+
+            <div class="sm">
+                <h1 style="text-align:center; color:white; cursor:pointer">Our Partners</h1><br>
+                <div class="rowss">
+
+                    <div class="col-5">
+                        <img src="../static/logo-godrej.png" alt="">
+                    </div>
+                    <div class="col-5">
+                        <img src="../static/logo-coca-cola.png" alt="">
+                    </div>
+                    <div class="col-5">
+                        <img src='../static/logo-oppo.png' alt="">
+                    </div>
+                    <div class="col-5">
+                        <img src="../static/logo-paypal.png" alt="">
+                    </div>
+                    <div class="col-5">
+                        <img src="../static/logo-philips.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="color: white;">
+        <div class="foot">
+
+            <div class="containers">
+                <div class="rowss">
+                    <div class="foot-col-1">
+                        <h3>Download Our App</h3>
+                        <p>Download App for Android and ios mobile phone</p>
+                        <div class="app-logo">
+                            <img src="../static/play-store.png" alt="">
+                            <img src="../static/app-store.png" alt="">
+                        </div>
+                    </div>
+                    <div class="foot-col-2 app-logo">
+                        <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Guess_Quiz_Logo.png" alt=""></a>
+                        <a href="/" style="text-decoration: none;">
+                            <h3><span class="head1">Quiz </span><span class="head2">Exam</span></h3>
+                        </a>
+
+                    </div>
+
+                    <div class="foot-col-4">
+                        <h3>Follow Us</h3>
+                        <ul>
+                            <li>
+                                <a href="https://www.facebook.com/profile.php?id=100073352633961 " target="_blank " class="fa fa-facebook "></a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/quiz_exam_?utm_medium=copy_link " target="_blank " class="fa fa-instagram "></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/QuizExam " target="_blank " class="fa fa-twitter "></a>
+                            </li>
+                            <li>
+                                <a href="https://youtube.com/channel/UCqzXoXGDaOHLYShkr-BORyQ " target="_blank " class="fa fa-youtube "></a>
+                            </li>
+                            <li>
+                                <a href="https://www.google.com " target="_blank " class="fa fa-google "></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <hr style="color: #fff; height:1px">
+                <h4 style="text-align: center; color:azure;">Copyright &copy; 2021 Quiz Exam All rights are reserved</h4>
+
+            </div>
+        </div>
+        {% endif %}
+
+       
+        <div id="confirmes">
+            <div class="messagess">
+                <h3><span class="head1">Quiz</span><span class="head2"> Exam</span> Says....</h3> <br> Welcome to Quiz Exam. <br> 1). It is the best portal for Giving Quiz Exam <br>2). Firstly Please signup or if you have account please login <br>3). In Signup
+                please provide your correct mail id <br>4). If you did not provide correct information you did not signup or login <br>5). In the given time limit please complete the quiz if you didnot complete the quiz on time the quiz automatically
+                submit and show your result
+                <br> All the best for the quiz!!!..</div><br>
+            <button class="yes submit " style="color: white;">OK</button>
+
+            
+        </div>
+    </div>
+    {% block script %}
+    <script>
+        const timer = document.getElementById('displaytimer')
+
+        const inputtag = document.getElementById('timer')
+        var m = Math.floor(a / 6)
+        var t = (a % 6) * 10;
+        setInterval(() => {
+            t -= 1
+            timer.innerHTML = "<b>Timer: " + m + " : " + t + " seconds</b>"
+            if (t == 0) {
+                m -= 1
+                t = 60
+                if (m == 1) {
+                    t = 60
+                }
+                if (m == -1)(
+                    t = 0
+                )
+            }
+
+            inputtag.value = t
+            if (t == 0 && m == -1) {
+                alert('Times Up');
+
+                document.getElementById('form1').submit();
+            }
+        }, 1000)
+        if (onselectstart == "return true") {
+            alert("copy is not allowed")
+        }
+    </script>
+    {% endblock script %} {% endblock %}
