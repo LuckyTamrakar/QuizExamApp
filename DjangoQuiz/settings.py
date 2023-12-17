@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'user',
     'captcha',
 ]
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://quiz-exam-rrsn.onrender.com'
+]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
